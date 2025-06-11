@@ -12,4 +12,5 @@ variable "availability_zones" {
 variable "alert_email" {
   description = "Email to receive CloudWatch alerts"
   type        = string
+  default = "tlawre23@eagles.nccu.edu"
 }
