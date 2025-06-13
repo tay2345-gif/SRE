@@ -55,9 +55,6 @@ jobs:
       - name: Setup Docker
         uses: docker/setup-docker-action@v4
 
-      - name: Set up Docker Compose
-        uses: docker/setup-compose-action@v1
-
       - name: Deploy Compose file
         run: docker-compose -f prometheus-grafana.yml up -d
       
