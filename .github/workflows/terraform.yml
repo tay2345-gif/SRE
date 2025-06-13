@@ -44,7 +44,7 @@ jobs:
           TF_TOKEN_app_terraform_io: ${{ secrets.TF_TOKEN_app_terraform_io }}
   
   Docker:
-    needs: terraform 
+    needs: Terraform 
     name: Deploy Docker Compose
     runs-on: ubuntu-latest
 
@@ -55,8 +55,11 @@ jobs:
       - name: Setup Docker
         uses: docker/setup-docker-action@v4
 
+      - name: Set up Docker Compose
+        uses: docker/setup-compose-action@v2
+
       - name: Deploy Compose file
-        run: docker-compose -f prometheus-grafana.yml up -d
+        run: docker compose -f prometheus-grafana.yml up -d
       
       - name: Deploy Successfully
         run: echo "deployed"
